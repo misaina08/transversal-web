@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+
+    <h:head>
+        <script src="http://maps.google.com/maps/api/js?key=AIzaSyDrraNXh6f3CoRtbVgC_euAvIhqEVhoO9U" type="text/javascript"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="/bo/css/bootstrap.min.css"/>
+        <h:outputStylesheet name="/bo/fonts/font-awesome.min.css"/>
+        <h:outputStylesheet name="/bo/fonts/icons.min.css"/>
+        <h:outputStylesheet name="/bo/css/AdminLTE.min.css"/>
+        <h:outputStylesheet name="/bo/css/skins/skin-blue.min.css"/>
+        <h:outputStylesheet name="/bo/fonts/font.css"/>
+        <title>Gestion du magasin</title>
+    </h:head>
+
+    <h:body class="hold-transition skin-blue sidebar-mini">
+
+        <div id="top">
+            <ui:insert name="top">
+                <ui:include src="header.xhtml"/>
+            </ui:insert>
+        </div>
+        <div>
+            <div id="left">
+                <ui:insert name="left">
+                    <ui:include src="left-side.xhtml"/>
+                </ui:insert>
+            </div>
+            
+        </div>
+        <div class="content-wrapper">
+            <ui:insert name="content">Content</ui:insert>
+        </div>
+        
+        
+        <div id="bottom">
+            <ui:insert name="bottom">
+                <footer class="main-footer">
+                    
+                    <!-- To the right -->
+                    <div class="pull-right hidden-xs">
+                        MBDS Transversal 2017
+                    </div>
+                    <!-- Default to the left -->
+                    <strong>Copyright &copy; 2017 <a href="#">Company</a>.</strong> All rights reserved.
+                </footer>
+            </ui:insert>
+        </div>
+
+    </h:body>
+    <h:outputScript name="/bo/js/jquery-3.1.1.min.js"/>
+    <h:outputScript name="/bo/js/bootstrap.min.js"/>
+    <h:outputScript name="/bo/js/adminlte.min.js"/>
+</html>
