@@ -23,5 +23,7 @@ hs_err_pid*
 /Transversal/Transversal-ejb/build/
 /Transversal/build/
 /Transversal/dist/
+/Transversal/nbproject/*
+/Transversal/nbproject/project.properties
 /Transversal/Transversal-ejb/dist/
 /Transversal/Transversal-war/dist/
