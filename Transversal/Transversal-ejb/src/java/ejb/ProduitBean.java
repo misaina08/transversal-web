@@ -5,10 +5,14 @@
  */
 package ejb;
 
+import entity.Magasin;
+import entity.Produit;
 import entity.ProduitView;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
+import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -24,15 +28,44 @@ public class ProduitBean {
     @PersistenceContext(unitName = "Transversal-ejbPU")
     private EntityManager em;
 
-    public void persist(Object object) {
-        em.persist(object);
+    public void ajoutProduit(Produit produit) {
+        FacesContext context = FacesContext.getCurrentInstance();
+        Magasin a = (Magasin) context.getExternalContext().getSessionMap().get("magasinSession");
+        produit.setMagasinId(a);
+        produit.setDateajout(new Date());
+        em.persist(produit);
+    }
+
+    
+     public Produit update(Produit point) {
+        return em.merge(point);
+    }
+    
+    public Produit findById(Integer id) {
+        return em.find(Produit.class, id);
+    }
+
+    public List<Produit> getListProduit() {
+        FacesContext context = FacesContext.getCurrentInstance();
+        Magasin a = (Magasin) context.getExternalContext().getSessionMap().get("magasinSession");
+        try {
+
+            Query cl = em.createQuery("SELECT c FROM Produit c WHERE c.magasinId.id = :id ");
+            cl.setParameter("id", a.getId());
+
+            return (List<Produit>) cl.getResultList();
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     /**
      * Retourne les produits récents, triés par ordre de vus (pour mobile)
-     * @return 
+     *
+     * @return
      */
-    public List<ProduitView> getRecent(){
+    public List<ProduitView> getRecent() {
         Query q = em.createQuery("select p from ProduitView p order by p.dateajout desc, p.nbvues desc");
         return q.getResultList();
     }

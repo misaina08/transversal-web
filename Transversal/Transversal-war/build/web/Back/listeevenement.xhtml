@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../WEB-INF/template-bo/template.xhtml">
+
+            <ui:define name="content">
+                <section class="content-header">
+                    <h3>
+                        #{produitMB.magasin.nom}
+
+
+                    </h3>
+
+                    <h:form>
+                        <!--<h:commandButton  value="deconnecter"/>-->
+                    </h:form>
+
+                    <ol class="breadcrumb">
+                        <li><a href="#"><i class="fa fa-dashboard"></i> </a></li>
+                        <li class="active"></li>
+                    </ol>
+                </section>
+
+                <!-- Main content -->
+                <section class="content container-fluid">
+
+                    <f:view>
+
+
+                        <h:form>
+
+
+
+                            <h:form>
+                                
+                                <h:dataTable value="#{evenementMagasinMB.listevenement}" var="item" class="table table-bordered table-hover">
+                                   
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Datydebut"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.datydebut}">
+                                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                                        </h:outputText>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Datyfin"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.datyfin}">
+                                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                                        </h:outputText>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Libelle"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.libelle}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Description"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.description}"/>
+                                    </h:column>
+                                   
+                                </h:dataTable>
+                            </h:form>
+
+
+                        </h:form>
+                    </f:view>
+
+
+
+
+
+
+
+                </section>
+
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

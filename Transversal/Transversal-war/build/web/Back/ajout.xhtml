@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../WEB-INF/template-bo/template.xhtml">
+
+            <ui:define name="content">
+                <section class="content-header">
+                    <h3>
+                        #{produitMB.magasin.nom}
+
+
+                    </h3>
+
+                    <h:form>
+                        <!--<h:commandButton  value="deconnecter"/>-->
+                    </h:form>
+
+                    <ol class="breadcrumb">
+                        <li><a href="#"><i class="fa fa-dashboard"></i> </a></li>
+                        <li class="active"></li>
+                    </ol>
+                </section>
+
+                <!-- Main content -->
+                <section class="content container-fluid">
+
+                    <f:view>
+
+
+                        <h:form>
+
+
+                            <h:form>
+
+
+                                <h:form>
+
+                                    <h:panelGrid columns="2">
+
+                                        <h:outputLabel value="Designation:" for="designation" />
+                                        <h:inputText id="designation" value="#{produitMB.produit.designation}" title="Designation" />
+                                        <h:outputLabel value="Prix:" for="prix" />
+                                        <h:inputText id="prix" value="#{produitMB.produit.prix}" title="Prix" />
+                                        <h:outputLabel value="Quantiteenstock:" for="quantiteenstock" />
+                                        <h:inputText id="quantiteenstock" value="#{produitMB.produit.quantiteenstock}" title="Quantiteenstock" />
+                                        <h:outputLabel value="Unite:" for="unite" />
+                                        <h:inputText id="unite" value="#{produitMB.produit.unite}" title="Unite" />
+
+                                        <h:outputLabel value="Photo:" for="photo" />
+                                        <h:inputText id="photo" value="#{produitMB.produit.photo}" title="Photo" />
+                                        <h:outputLabel value="Tag:" for="tag" />
+                                        <h:inputText id="tag" value="#{produitMB.produit.tag}" title="Tag" />
+                                        <h:outputLabel value="Nbvues:" for="nbvues" />
+                                        <h:inputText id="nbvues" value="#{produitMB.produit.nbvues}" title="Nbvues" />
+
+
+
+                                        <h:outputLabel value="Categorie" for="categorie" />
+
+                                        <h:selectOneMenu class="form-control" id="categorie" value="#{produitMB.categorieIdSelect}"
+                                                         converter="#{produitMB.categorieConverter}">
+                                            <f:selectItems value="#{produitMB.listecategorie}" 
+                                                           var="categorie"
+                                                           itemValue="#{categorie.libelle}"/>
+                                                           
+                                        </h:selectOneMenu>
+
+
+
+                                       
+
+                                    </h:panelGrid>
+                                </h:form>
+
+                            </h:form>
+
+
+                        </h:form>
+                    </f:view>
+
+
+
+
+
+
+
+                </section>
+
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

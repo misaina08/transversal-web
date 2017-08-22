@@ -5,7 +5,7 @@
  */
 package entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+//import com.fasterxml.jackson.annotation.JsonFormat;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
@@ -58,7 +58,7 @@ public class ProduitView implements Serializable {
     @Column(name = "UNITE")
     private String unite;
     @Column(name = "DATEAJOUT")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "CET")
+    //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "CET")
     private Date dateajout;
     @Size(max = 50)
     @Column(name = "PHOTO")
