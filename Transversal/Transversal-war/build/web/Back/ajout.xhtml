@@ -68,7 +68,8 @@
                                                          converter="#{produitMB.categorieConverter}">
                                             <f:selectItems value="#{produitMB.listecategorie}" 
                                                            var="categorie"
-                                                           itemValue="#{categorie.libelle}"/>
+                                                           itemValue="#{categorie}"
+                                                           itemLabel="#{categorie.libelle}"/>
                                                            
                                         </h:selectOneMenu>
 

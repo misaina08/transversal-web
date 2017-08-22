@@ -13,11 +13,11 @@
                     <file>${reference.Transversal-ejb.dist}</file>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.primefaces-6.1.jar}</file>
+                    <file>${file.reference.gson-2.2.2.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.gson-2.2.2.jar}</file>
+                    <file>${file.reference.primefaces-6.1.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
