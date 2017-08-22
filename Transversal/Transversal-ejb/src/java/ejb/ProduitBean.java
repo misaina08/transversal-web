@@ -69,4 +69,13 @@ public class ProduitBean {
         Query q = em.createQuery("select p from ProduitView p order by p.dateajout desc, p.nbvues desc");
         return q.getResultList();
     }
+    public ProduitView findViewById(Integer id) {
+        return em.find(ProduitView.class, id);
+    }
+    public List<ProduitView> getProduitByCategorie(Integer idCategorie){
+        Query q = em.createQuery("select p from ProduitView p where p.categorieId = :idcategorie order by p.dateajout desc, p.nbvues desc");
+        q.setParameter("idcategorie", idCategorie);
+        q.setMaxResults(5);
+        return q.getResultList();
+    }
 }
