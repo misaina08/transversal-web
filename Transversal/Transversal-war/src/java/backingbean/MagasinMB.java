@@ -53,4 +53,10 @@ public class MagasinMB {
         }
     }
     
+     
+    public String logout() {
+    FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+    return "/Front/accueil?faces-redirect=true";
+} 
+     
 }

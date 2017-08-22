@@ -6,6 +6,7 @@
 package backingbean;
 
 import ejb.CategorieBean;
+import ejb.MagasinBean;
 import ejb.ProduitBean;
 import entity.Categorie;
 import entity.Magasin;
@@ -28,6 +29,9 @@ import javax.faces.convert.Converter;
 public class ProduitMB {
 
     @EJB
+    private MagasinBean magasinBean;
+
+    @EJB
     private CategorieBean categorieBean;
 
     @EJB
@@ -48,6 +52,21 @@ public class ProduitMB {
         this.magasin = magasin;
     }
 
+    private int idMagasin;
+    
+    public void loadMagasin() {
+        this.magasin = magasinBean.findById(new Integer(idMagasin));
+        
+    }
+
+    public int getIdMagasin() {
+        return idMagasin;
+    }
+
+    public void setIdMagasin(int idMagasin) {
+        this.idMagasin = idMagasin;
+    }
+    
     public List<Produit> getListeproduit() {
         if(listeproduit == null){
             listeproduit=produitBean.getListProduit();
@@ -62,6 +81,19 @@ public class ProduitMB {
    
     
     private List<Produit> listeproduit;
+    private List<Produit> listeproduitMagasin;
+
+    public List<Produit> getListeproduitMagasin() {
+        if(listeproduitMagasin==null){
+            listeproduitMagasin=produitBean.getList(magasin);
+        }
+        return listeproduitMagasin;
+    }
+
+    public void setListeproduitMagasin(List<Produit> listeproduitMagasin) {
+        this.listeproduitMagasin = listeproduitMagasin;
+    }
+    
     private int idProduit;
 
     public int getIdProduit() {
@@ -164,7 +196,19 @@ public class ProduitMB {
         }
     };
     
-    
+    private List<Produit> produitSimilaire;
+
+    public List<Produit> getProduitSimilaire() {
+        if(produitSimilaire == null){
+            produitSimilaire=produitBean.getSimilaire(produit);
+        }
+        return produitSimilaire;
+    }
+
+    public void setProduitSimilaire(List<Produit> produitSimilaire) {
+        this.produitSimilaire = produitSimilaire;
+    }
+
     
     
 }
