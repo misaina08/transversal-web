@@ -805,6 +805,7 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${file.reference.jersey-json-1.9.1.jar}" todir="${build.classes.dir}"/>
         <copyfiles files="${file.reference.jersey-server-1.9.1.jar}" todir="${build.classes.dir}"/>
         <copyfiles files="${file.reference.servlet-api.jar}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.jackson-annotations-2.0.0.jar}" todir="${build.classes.dir}"/>
     </target>
     <target if="is.server.weblogic" name="-library-inclusion-in-archive-weblogic">
         <basename file="${file.reference.asm-3.1.jar}" property="manifest.file.reference.asm-3.1.jar"/>
@@ -819,8 +820,9 @@ exists or setup the property manually. For example like this:
         <basename file="${file.reference.jersey-json-1.9.1.jar}" property="manifest.file.reference.jersey-json-1.9.1.jar"/>
         <basename file="${file.reference.jersey-server-1.9.1.jar}" property="manifest.file.reference.jersey-server-1.9.1.jar"/>
         <basename file="${file.reference.servlet-api.jar}" property="manifest.file.reference.servlet-api.jar"/>
+        <basename file="${file.reference.jackson-annotations-2.0.0.jar}" property="manifest.file.reference.jackson-annotations-2.0.0.jar"/>
         <manifest file="${build.ear.classes.dir}/META-INF/MANIFEST.MF" mode="update">
-            <attribute name="Extension-List" value="jar-1 jar-2 jar-3 jar-4 jar-5 jar-6 jar-7 jar-8 jar-9 jar-10 jar-11 jar-12 "/>
+            <attribute name="Extension-List" value="jar-1 jar-2 jar-3 jar-4 jar-5 jar-6 jar-7 jar-8 jar-9 jar-10 jar-11 jar-12 jar-13 "/>
             <attribute name="jar-1-Extension-Name" value="${manifest.file.reference.asm-3.1.jar}"/>
             <attribute name="jar-2-Extension-Name" value="${manifest.file.reference.asm-attrs.jar}"/>
             <attribute name="jar-3-Extension-Name" value="${manifest.file.reference.gson-1.7.1.jar}"/>
@@ -833,6 +835,7 @@ exists or setup the property manually. For example like this:
             <attribute name="jar-10-Extension-Name" value="${manifest.file.reference.jersey-json-1.9.1.jar}"/>
             <attribute name="jar-11-Extension-Name" value="${manifest.file.reference.jersey-server-1.9.1.jar}"/>
             <attribute name="jar-12-Extension-Name" value="${manifest.file.reference.servlet-api.jar}"/>
+            <attribute name="jar-13-Extension-Name" value="${manifest.file.reference.jackson-annotations-2.0.0.jar}"/>
         </manifest>
     </target>
     <target depends="compile" name="library-inclusion-in-manifest">
@@ -848,6 +851,7 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${file.reference.jersey-json-1.9.1.jar}" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.jersey-server-1.9.1.jar}" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.servlet-api.jar}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.jackson-annotations-2.0.0.jar}" todir="${dist.ear.dir}/lib"/>
         <manifest file="${build.ear.classes.dir}/META-INF/MANIFEST.MF" mode="update"/>
     </target>
     <target name="-copy-meta-inf">
