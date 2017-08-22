@@ -58,7 +58,7 @@ public class ProduitView implements Serializable {
     @Column(name = "UNITE")
     private String unite;
     @Column(name = "DATEAJOUT")
-    //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "CET")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "CET")
     private Date dateajout;
     @Size(max = 50)
     @Column(name = "PHOTO")

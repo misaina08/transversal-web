@@ -12,6 +12,7 @@ import javax.annotation.ManagedBean;
 import javax.ejb.EJB;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 
@@ -32,4 +33,18 @@ public class ProduitRes {
     public List<ProduitView> produitAccueil(){
         return produitBean.getRecent();
     }   
+    
+    @GET
+    @Path("{idproduit}")
+    @Produces("application/json")
+    public ProduitView getById(@PathParam("idproduit") Integer idProduit){
+        return produitBean.findViewById(idProduit);
+    }
+    
+    @GET
+    @Path("/similaires/{idcategorie}")
+    @Produces("application/json")
+    public List<ProduitView> getProduitsSimilaires(@PathParam("idcategorie") Integer idCategorie){
+        return produitBean.getProduitByCategorie(idCategorie);
+    }
 }
