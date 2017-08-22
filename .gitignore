@@ -20,19 +20,7 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-Transversal/Transversal-ejb/build/
-Transversal/build/
-Transversal/dist/
-Transversal/nbproject/*
-Transversal/Transversal-ejb/dist/
-Transversal/Transversal-ejb/nbproject/
-Transversal/Transversal-ejb/build.xml
-Transversal/Transversal-ejb/test/
-Transversal/Transversal-ejb/lib/
-Transversal/Transversal-war/dist/
-Transversal/Transversal-war/lib/
-Transversal/Transversal-war/nbproject/
-Transversal/Transversal-war/build/
-Transversal/Transversal-war/build.xml
-Transversal/Transversal-war/build/web/META-INF/MANIFEST.MF
-Transversal/Transversal-war/build/web/*
+!Transversal/Transversal-ejb/src/
+!Transversal/Transversal-war/src/
+!Transversal/Transversal-war/web/
+Transversal
