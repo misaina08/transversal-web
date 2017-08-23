@@ -3,28 +3,40 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/web/WEB-INF/template-bo/template.xhtml</file>
             <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/web/Back/ajout.xhtml</file>
+            <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/web/Back/profil.xhtml</file>
             <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/web/WEB-INF/template-fo/template.xhtml</file>
+            <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/web/Front/login.xhtml</file>
+            <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/web/WEB-INF/template-bo/header.xhtml</file>
+            <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/src/java/backingbean/EvenementMagasinMB.java</file>
+            <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/web/Back/localisation.xhtml</file>
+            <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/web/Front/listeMagasin.xhtml</file>
+            <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/web/WEB-INF/template-bo/left-side.xhtml</file>
+            <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/src/java/backingbean/ClientMB.java</file>
+            <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/web/Front/listeFavorie.xhtml</file>
+            <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/web/Back/ajoutevenement.xhtml</file>
+            <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/src/java/backingbean/ajoutClientMB.java</file>
+            <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/web/Back/login.xhtml</file>
+            <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/src/java/backingbean/MarkersView.java</file>
+            <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/src/java/ws/ProduitRes.java</file>
+            <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/web/WEB-INF/template-bo/template.xhtml</file>
             <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/web/WEB-INF/template-fo/header.xhtml</file>
             <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/web/Back/accueil.xhtml</file>
             <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/web/WEB-INF/template-bo/header.xhtml</file>
-            <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/src/java/backingbean/EvenementMagasinMB.java</file>
+            <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/web/Front/ajoutEvenement.xhtml</file>
             <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/src/java/backingbean/ProduitMB.java</file>
-            <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/web/Back/localisation.xhtml</file>
             <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/web/Front/fiche-magasin.xhtml</file>
             <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/src/java/backingbean/FilactuMB.java</file>
             <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/web/Front/fiche-produit.xhtml</file>
             <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/src/java/backingbean/MagasinMB.java</file>
-            <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/web/WEB-INF/template-bo/left-side.xhtml</file>
-            <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/web/Back/ajoutevenement.xhtml</file>
+            <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/web/Front/profil.xhtml</file>
+            <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/src/java/backingbean/EvenementClientMB.java</file>
+            <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/web/Back/abonne.xhtml</file>
             <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/web/Back/fiche-produit.xhtml</file>
             <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/web/Front/accueil.xhtml</file>
-            <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/web/Back/login.xhtml</file>
-            <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/src/java/backingbean/MarkersView.java</file>
-            <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/src/java/ws/ProduitRes.java</file>
+            <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/web/Front/inscription.xhtml</file>
             <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/web/Back/listeevenement.xhtml</file>
+            <file>file:/C:/Users/mia74/Documents/GitHub/transversal-web/Transversal/Transversal-war/src/java/backingbean/profilClientBoMB.java</file>
         </group>
     </open-files>
 </project-private>

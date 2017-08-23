@@ -20,6 +20,7 @@
 
                     <h:form>
                         <!--<h:commandButton  value="deconnecter"/>-->
+                        
                     </h:form>
 
                     <ol class="breadcrumb">
@@ -38,7 +39,7 @@
 
 
                             <h:form>
-
+                                <p:growl id="growl" showDetail="true" sticky="true" />
                                 <h:dataTable value="#{produitMB.listeproduit}" var="item" class="table table-bordered table-hover">
 
                                     <h:column>

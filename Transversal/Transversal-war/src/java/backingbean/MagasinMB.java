@@ -15,6 +15,7 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
 /**
@@ -75,6 +76,7 @@ public class MagasinMB {
         if (mag != null) {
             FacesContext context = FacesContext.getCurrentInstance();
             context.getExternalContext().getSessionMap().put("magasinSession", mag);
+            context.addMessage(null, new FacesMessage("Vous etes connecter"));
             return "/Back/accueil?faces-redirect=true";
         } else {
             return "/Back/login?faces-redirect=true";

@@ -2,11 +2,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-    
-<!--    <f:metadata> 
-        <f:viewAction action="/> 
-    </f:metadata>-->
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <!--    <f:metadata> 
+            <f:viewAction action="/> 
+        </f:metadata>-->
     <h:head>
         <h:outputStylesheet name="/bo/css/bootstrap.min.css"/>
         <h:outputStylesheet name="/bo/fonts/font-awesome.min.css"/>
@@ -26,36 +27,39 @@
                 <p class="login-box-msg">Connexion</p>
 
                 <h:form>
-                    <div class="form-group has-feedback">
-                        <h:inputText class="form-control" id="login" required="true" value="#{magasinMB.magasin.login}" requiredMessage="Veuillez entrer votre login"/> 
-                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                    </div>
-                    <div class="form-group has-feedback">
-                        <h:inputSecret class="form-control" id="mdp" required="true" value="#{magasinMB.magasin.mdp}" requiredMessage="Veuillez entrer votre Mdp"/> 
-                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <div class="checkbox icheck">
-                                <label>
-                                    <h:messages class="alert"/>
-                                </label>
+                    <p:growl id="growl" showDetail="true" sticky="true" />
+                    
+                        <div class="form-group has-feedback">
+                            <h:inputText class="form-control" id="login" required="true" value="#{magasinMB.magasin.login}" requiredMessage="Veuillez entrer votre login"/> 
+                            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <h:inputSecret class="form-control" id="mdp" required="true" value="#{magasinMB.magasin.mdp}" requiredMessage="Veuillez entrer votre Mdp"/> 
+                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="checkbox icheck">
+                                    <label>
+                                        <h:messages class="alert"/>
+                                    </label>
+                                </div>
                             </div>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-xs-6">
-                            <h:commandButton class="btn btn-primary btn-block btn-flat" action="#{magasinMB.connectMagasin()}" value="Se connecter"/> 
-                        </div>
-                  
-                        <!-- /.col -->
-                    </div>
-                </h:form>
+                            <!-- /.col -->
+                            <div class="col-xs-6">
+                                <p:commandButton class="btn btn-primary btn-block btn-flat" action="#{magasinMB.connectMagasin()}" value="Se connecter" update="growl"/> 
+                            </div>
+                            </div>
+                   
+                    <!-- /.col -->
+            
+            </h:form>
 
 
-            </div>
-            <!-- /.login-box-body -->
         </div>
-        
+        <!-- /.login-box-body -->
+        </div>
+
 
     </h:body>
 </html>

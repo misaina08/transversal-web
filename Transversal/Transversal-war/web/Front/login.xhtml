@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     
 <!--    <f:metadata> 
         <f:viewAction action="/> 
@@ -26,6 +27,7 @@
                 <p class="login-box-msg">Connexion</p>
 
                 <h:form>
+                    <p:growl id="growl" showDetail="true" sticky="true" />
                     <div class="form-group has-feedback">
                         <h:inputText class="form-control" id="login" required="true" value="#{clientMB.client.login}" requiredMessage="Veuillez entrer votre login"/> 
                         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -37,9 +39,7 @@
                     <div class="row">
                         <div class="col-xs-6">
                             <div class="checkbox icheck">
-                                <label>
-                                    <h:messages class="alert"/>
-                                </label>
+                                
                             </div>
                         </div>
                         <!-- /.col -->
