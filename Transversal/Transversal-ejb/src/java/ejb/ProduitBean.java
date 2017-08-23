@@ -60,6 +60,22 @@ public class ProduitBean {
         }
     }
 
+     public List<Produit> getList(Magasin a) {
+       
+        try {
+
+            Query cl = em.createQuery("SELECT c FROM Produit c WHERE c.magasinId.id = :id ");
+            cl.setParameter("id", a.getId());
+
+            return (List<Produit>) cl.getResultList();
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    
+    
     /**
      * Retourne les produits récents, triés par ordre de vus (pour mobile)
      *
@@ -69,6 +85,26 @@ public class ProduitBean {
         Query q = em.createQuery("select p from ProduitView p order by p.dateajout desc, p.nbvues desc");
         return q.getResultList();
     }
+    
+    public List<Produit> getDerniersAjout() {
+        Query query = em.createQuery("SELECT p FROM Produit p ORDER BY p.dateajout DESC");
+        query.setMaxResults(6);
+        return (List<Produit>) query.getResultList();
+    }
+    
+    public List<Produit> getSimilaire(Produit produit) {
+        Query query = em.createQuery("SELECT p FROM Produit p WHERE p.categorieId = :cat");
+        query.setParameter("cat", produit.getCategorieId());
+        query.setMaxResults(6);
+        return (List<Produit>) query.getResultList();
+    }
+    
+    public List<Produit> getPlusVus() {
+        Query query = em.createQuery("SELECT p FROM Produit p ORDER BY p.nbvues DESC");
+        query.setMaxResults(6);
+        return (List<Produit>) query.getResultList();
+    }
+    
     public ProduitView findViewById(Integer id) {
         return em.find(ProduitView.class, id);
     }

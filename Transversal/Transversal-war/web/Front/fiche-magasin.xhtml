@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <f:metadata>  
+        <f:viewParam name="idMagasin" value="#{produitMB.idMagasin}"  
+                     required="true"/>  
+        <f:viewAction action="#{produitMB.loadMagasin()}"/>  
+    </f:metadata>
+
+    <body>
+
+        <ui:composition template="./../WEB-INF/template-fo/template.xhtml">
+
+            <ui:define name="content">
+                <f:view>
+                    <h:form>
+                   
+                        <div id="portfolio" class="container-fluid text-center bg-white">
+                            <h2>A propos du Magasin</h2>
+                            <div class="row text-center">
+                                <h:graphicImage value="/resources/bo/img/#{produitMB.magasin.photo}.jpg" width="125" height="75" class="img-circle"/>
+                                <br></br>
+                                <br></br>
+                                <h:outputText  value="#{produitMB.magasin.nom}"/><br></br>
+                                <h:outputLabel value="Contact : "/>&nbsp;
+                                <h:outputText  value="#{produitMB.magasin.numero}"/><br></br>
+                                <h:outputLabel value="Email : "/>&nbsp;
+                                <h:outputText  value="#{produitMB.magasin.email}"/><br></br>
+                                <h:outputLabel value="Adresse : "/>&nbsp;
+                                <h:outputText  value="#{produitMB.magasin.adresse}"/><br></br>
+                                
+                                
+                            </div>
+                        </div>
+                        <div id="portfolio" class="container-fluid text-center bg-white">
+                            <h2>Listes des produits</h2>
+                            <div class="row text-center">
+                                <ui:repeat value="#{produitMB.listeproduitMagasin}" var="produit">
+                                    <div class="col-sm-2">
+                                        <div class="thumbnail">
+                                            <h:graphicImage value="/resources/bo/img/#{produit.photo}.jpg" width="100" height="100"/>
+                                            <p><strong>#{produit.designation}</strong></p>
+                                            <p>#{produit.prix}</p>
+                                            <h:link class="btn btn-primary btn-sm" outcome="/Front/fiche-produit?idProduit=#{produit.id}" value="Voir Produit"/>
+                                        </div>
+                                    </div>
+                                </ui:repeat>
+                                
+                            </div>
+                        </div>
+                        
+                        <p:gmap center="-18.902205,47.527611" zoom="17" type="ROADMAP" style="width:100%;height:400px" model="#{markersView.simpleModel}"/>
+
+                    </h:form>
+                </f:view>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>
