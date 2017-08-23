@@ -5,9 +5,8 @@
  */
 package ejb;
 
-import entity.CategorieMagasinView;
+import entity.EvenementMagasin;
 import entity.Magasin;
-import entity.ProduitView;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
@@ -35,7 +34,12 @@ public class MagasinBean {
         cl.setParameter("id", id);
         return (Magasin) cl.getSingleResult();
     }
-
+    
+    public List<Magasin> findAll() {
+        Query cl = em.createNamedQuery("Magasin.findAll");
+        return (List<Magasin>) cl.getResultList();
+    }
+    
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
     public Magasin findUtilisateur(String login, String mdp) {
@@ -49,23 +53,16 @@ public class MagasinBean {
             return null;
         }
     }
-
-    public List<ProduitView> findMeilleursMagasin(Integer idmagasin) {
-        Query query = em.createQuery("SELECT c FROM ProduitView c WHERE c.magasinId = :idmagasin order by c.dateajout desc, c.nbvues desc");
-        query.setParameter("idmagasin", idmagasin);
-        query.setMaxResults(8);
-        return query.getResultList();
-    }
-    public List<CategorieMagasinView> findCategoriesMagasin(Integer idmagasin){
-         Query query = em.createQuery("SELECT c FROM CategorieMagasinView c WHERE c.magasinId = :idmagasin");
-        query.setParameter("idmagasin", idmagasin);
-        return query.getResultList();
-    }
     
-    public List<ProduitView> findProduitsCategorieMagasin(Integer idmagasin, Integer idcategorie){
-        Query query = em.createQuery("SELECT c FROM ProduitView c WHERE c.magasinId = :idmagasin and c.categorieId = :idcategorie");
-        query.setParameter("idmagasin", idmagasin);
-        query.setParameter("idcategorie", idcategorie);
-        return query.getResultList();
+    public List<EvenementMagasin> getEvenement(Magasin magasin){
+       try{
+            Query query=em.createQuery("SELECT c FROM EvenementMagasin c WHERE c.magasinId.id = :id");
+            query.setParameter("id", magasin.getId());
+            return ((List<EvenementMagasin>) query.getResultList());       
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 }
