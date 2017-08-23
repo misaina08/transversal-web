@@ -5,7 +5,9 @@
  */
 package ejb;
 
+import entity.EvenementMagasin;
 import entity.Magasin;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
 import javax.persistence.EntityManager;
@@ -33,6 +35,11 @@ public class MagasinBean {
         return (Magasin) cl.getSingleResult();
     }
     
+    public List<Magasin> findAll() {
+        Query cl = em.createNamedQuery("Magasin.findAll");
+        return (List<Magasin>) cl.getResultList();
+    }
+    
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
     
@@ -42,6 +49,18 @@ public class MagasinBean {
             query.setParameter("login", login);
             query.setParameter("mdp", mdp);
             return ((Magasin) query.getSingleResult());       
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
+    public List<EvenementMagasin> getEvenement(Magasin magasin){
+       try{
+            Query query=em.createQuery("SELECT c FROM EvenementMagasin c WHERE c.magasinId.id = :id");
+            query.setParameter("id", magasin.getId());
+            return ((List<EvenementMagasin>) query.getResultList());       
         }
         catch(Exception e){
             e.printStackTrace();

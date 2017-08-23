@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <f:metadata>  
+        <f:viewParam name="idClient" value="#{profilClientBoMB.idClient}"  
+                     required="true"/>  
+        <f:viewAction action="#{profilClientBoMB.loadClient()}"/>  
+    </f:metadata>
+
+    <body>
+
+        <ui:composition template="./../WEB-INF/template-bo/template.xhtml">
+
+            <ui:define name="content">
+                <section class="content-header">
+                    <h4>
+                        Profil Client
+
+
+                    </h4>
+
+                    <h:form>
+                        <!--<h:commandButton  value="deconnecter"/>-->
+                    </h:form>
+
+                    <ol class="breadcrumb">
+                        <li><a href="#"><i class="fa fa-dashboard"></i> </a></li>
+                        <li class="active"></li>
+                    </ol>
+                </section>
+
+                <!-- Main content -->
+                <section class="content container-fluid">
+
+                    <f:view>
+
+
+                        <h:form>
+
+
+                            <div id="portfolio" class="container-fluid text-center bg-white">
+                                <h2>#{profilClientBoMB.client.nom} #{profilClientBoMB.client.prenom}</h2>
+                                <div class="row text-center">
+                                    <h:outputLabel value="Nom : "/>&nbsp;
+                                    <h:outputText  value="#{profilClientBoMB.client.nom}"/><br></br>
+                                    <h:outputLabel value="Prenom : "/>&nbsp;
+                                    <h:outputText  value="#{profilClientBoMB.client.prenom}"/><br></br>
+                                    <h:outputLabel value="Email : "/>&nbsp;
+                                    <h:outputText  value="#{profilClientBoMB.client.email}"/><br></br>
+                                    <h:outputLabel value="Numero : "/>&nbsp;
+                                    <h:outputText  value="#{profilClientBoMB.client.numero}"/><br></br>
+                                    <h:outputLabel value="Adresse : "/>&nbsp;
+                                    <h:outputText  value="#{profilClientBoMB.client.adresse}"/><br></br>
+                                </div>
+                            </div>
+
+                            <div id="portfolio" class="container-fluid text-center bg-white">
+                                <h4>Evenements Clients</h4>
+                                
+                                <div class="row text-center">
+
+                                    <ui:repeat value="#{profilClientBoMB.listeEvenement}" var="evenement">
+                                        <div class="col-sm-2">
+                                            <div class="thumbnail">
+
+                                                <p><strong>#{evenement.libelle}</strong></p>
+
+                                                <h:outputLabel value="Date :" for="daty" />&nbsp;
+                                                <h:inputText value="#{evenement.daty}" title="Date : " style="width:75px">
+                                                    <f:convertDateTime pattern="dd/MM/yyyy" />
+                                                </h:inputText><br></br><br></br>
+                                                <h:link class="btn btn-primary btn-sm" value="Sugerer Produit"/>
+
+
+                                            </div>
+                                        </div>
+                                    </ui:repeat>
+                                </div>
+                            </div>
+
+                        </h:form>
+                    </f:view>
+
+
+
+
+
+
+
+                </section>
+
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

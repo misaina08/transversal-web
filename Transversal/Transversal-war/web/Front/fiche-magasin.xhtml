@@ -18,8 +18,11 @@
             <ui:define name="content">
                 <f:view>
                     <h:form>
-                   
+
                         <div id="portfolio" class="container-fluid text-center bg-white">
+                            <div id="map" class="">
+                                <p:gmap center="-18.902205,47.527611" zoom="17" type="ROADMAP" style="width:100%;height:400px" model="#{markersView.simpleModel}"/>
+                            </div>
                             <h2>A propos du Magasin</h2>
                             <div class="row text-center">
                                 <h:graphicImage value="/resources/bo/img/#{produitMB.magasin.photo}.jpg" width="125" height="75" class="img-circle"/>
@@ -31,9 +34,10 @@
                                 <h:outputLabel value="Email : "/>&nbsp;
                                 <h:outputText  value="#{produitMB.magasin.email}"/><br></br>
                                 <h:outputLabel value="Adresse : "/>&nbsp;
-                                <h:outputText  value="#{produitMB.magasin.adresse}"/><br></br>
-                                
-                                
+                                <h:outputText value="#{produitMB.magasin.adresse}"/><br></br>
+                                <h:outputText value="Vous etes abonnee (mbola mila rendered)" style="color: green"/><br></br>
+                                <h:commandButton class="btn btn-primary btn-sm" action="#{produitMB.ajoutFavMagasin()}" value="S'abonne (mbola mila rendered)"/> 
+
                             </div>
                         </div>
                         <div id="portfolio" class="container-fluid text-center bg-white">
@@ -49,11 +53,36 @@
                                         </div>
                                     </div>
                                 </ui:repeat>
-                                
+
                             </div>
                         </div>
-                        
-                        <p:gmap center="-18.902205,47.527611" zoom="17" type="ROADMAP" style="width:100%;height:400px" model="#{markersView.simpleModel}"/>
+
+                        <div id="portfolio" class="container-fluid text-center bg-white">
+                            <h2>Listes des evenements du magasin</h2>
+                            <div class="row text-center">
+                                <ui:repeat value="#{produitMB.listeEvMagasin}" var="evenement">
+                                    <div class="col-sm-2">
+                                        <div class="thumbnail">
+
+                                            <p><strong>#{evenement.libelle}</strong></p>
+                                            <p>#{evenement.description}</p>
+                                            <h:outputLabel value="Date de debut :" for="datyfin" />
+                                            <h:inputText value="#{evenement.datydebut}">
+                                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                                            </h:inputText>
+                                            <br></br><br></br>
+                                            <h:outputLabel value="Date Fin :" for="datyfin" />
+                                             <h:inputText value="#{evenement.datyfin}" title="Date Fin : " >
+                                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                                            </h:inputText>
+                                            
+
+                                        </div>
+                                    </div>
+                                </ui:repeat>
+
+                            </div>
+                        </div>
 
                     </h:form>
                 </f:view>

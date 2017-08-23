@@ -60,12 +60,12 @@ public class ProduitBean {
         }
     }
 
-     public List<Produit> getList(Magasin a) {
+     public List<Produit> getList(Integer a) {
        
         try {
 
             Query cl = em.createQuery("SELECT c FROM Produit c WHERE c.magasinId.id = :id ");
-            cl.setParameter("id", a.getId());
+            cl.setParameter("id", a);
 
             return (List<Produit>) cl.getResultList();
         } catch (RuntimeException e) {

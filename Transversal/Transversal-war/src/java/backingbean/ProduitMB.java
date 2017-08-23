@@ -6,9 +6,13 @@
 package backingbean;
 
 import ejb.CategorieBean;
+import ejb.ClientBean;
 import ejb.MagasinBean;
 import ejb.ProduitBean;
 import entity.Categorie;
+import entity.Client;
+import entity.EvenementMagasin;
+import entity.Favori;
 import entity.Magasin;
 import entity.Produit;
 import java.util.Date;
@@ -27,6 +31,9 @@ import javax.faces.convert.Converter;
 @Named(value = "produitMB")
 @RequestScoped
 public class ProduitMB {
+
+    @EJB
+    private ClientBean clientBean;
 
     @EJB
     private MagasinBean magasinBean;
@@ -85,7 +92,7 @@ public class ProduitMB {
 
     public List<Produit> getListeproduitMagasin() {
         if(listeproduitMagasin==null){
-            listeproduitMagasin=produitBean.getList(magasin);
+            listeproduitMagasin=produitBean.getList(idMagasin);
         }
         return listeproduitMagasin;
     }
@@ -209,6 +216,42 @@ public class ProduitMB {
         this.produitSimilaire = produitSimilaire;
     }
 
-    
-    
+     private Favori favori = new Favori();
+     public String ajoutFavMagasin() {
+         System.out.println("hahahahahahahahaha______");
+         this.magasin = magasinBean.findById(new Integer(idMagasin));
+         FacesContext context = FacesContext.getCurrentInstance();
+          Client huhu=(Client) context.getExternalContext().getSessionMap().get("clientSession");
+          System.out.println("huhuhuhuhuhuhuu______");
+         System.out.println("id______magasin"+magasin.getId());
+         System.out.println("id______client"+huhu.getId());
+         System.out.println("hohohohohohohoho______");
+         favori.setClientId(huhu);
+        favori.setMagasinId(magasin);
+        clientBean.ajoutFavori(favori);
+        return "/Front/listeFavorie?faces-redirect=true";
+    }
+
+    public Favori getFavori() {
+        return favori;
+    }
+
+    public void setFavori(Favori favori) {
+        this.favori = favori;
+    }
+
+   private List<EvenementMagasin> listeEvMagasin;
+
+    public List<EvenementMagasin> getListeEvMagasin() {
+        if(listeEvMagasin==null){
+            this.magasin = magasinBean.findById(new Integer(idMagasin));
+            listeEvMagasin=magasinBean.getEvenement(magasin);
+        }
+        return listeEvMagasin;
+    }
+
+    public void setListeEvMagasin(List<EvenementMagasin> listeEvMagasin) {
+        this.listeEvMagasin = listeEvMagasin;
+    }
+   
 }

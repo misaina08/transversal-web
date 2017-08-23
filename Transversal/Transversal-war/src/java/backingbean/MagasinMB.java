@@ -5,8 +5,13 @@
  */
 package backingbean;
 
+import ejb.AbonneBean;
+import ejb.ClientBean;
 import ejb.MagasinBean;
+import entity.Client;
+import entity.Favori;
 import entity.Magasin;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
@@ -21,14 +26,37 @@ import javax.faces.context.FacesContext;
 public class MagasinMB {
 
     @EJB
+    private AbonneBean abonneBean;
+
+    @EJB
+    private ClientBean clientBean;
+
+    @EJB
     private MagasinBean magasinBean;
 
+    
+    
     /**
      * Creates a new instance of MagasinMB
      */
     
     private Magasin magasin=new Magasin();
 
+    private List<Magasin> listeMagasin;
+
+    public List<Magasin> getListeMagasin() {
+        if(listeMagasin==null){
+            listeMagasin=magasinBean.findAll();
+        }
+        return listeMagasin;
+    }
+
+    public void setListeMagasin(List<Magasin> listeMagasin) {
+        this.listeMagasin = listeMagasin;
+    }
+    
+    
+    
     public Magasin getMagasin() {
         return magasin;
     }
@@ -59,4 +87,20 @@ public class MagasinMB {
     return "/Front/accueil?faces-redirect=true";
 } 
      
+    private List<Favori> listeFavori;
+
+    public List<Favori> getListeFavori() {
+        if(listeFavori==null){
+             FacesContext context = FacesContext.getCurrentInstance();
+            Magasin a = (Magasin) context.getExternalContext().getSessionMap().get("magasinSession");
+            listeFavori=abonneBean.getAbonne(a.getId());
+        }
+        return listeFavori;
+    }
+
+    public void setListeFavori(List<Favori> listeFavori) {
+        this.listeFavori = listeFavori;
+    }
+    
+    
 }
