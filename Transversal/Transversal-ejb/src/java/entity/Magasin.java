@@ -81,13 +81,13 @@ public class Magasin implements Serializable {
     @Column(name = "LATITUDE")
     private Double latitude;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "magasinId")
-    private List<Produit> produitList;
+    private transient List<Produit> produitList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "magasinId")
-    private List<CategorieMagasin> categorieMagasinList;
+    private transient List<CategorieMagasin> categorieMagasinList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "magasinId")
-    private List<Favori> favoriList;
+    private transient List<Favori> favoriList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "magasinId")
-    private List<EvenementMagasin> evenementMagasinList;
+    private transient List<EvenementMagasin> evenementMagasinList;
 
     public Magasin() {
     }
